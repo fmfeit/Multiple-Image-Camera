@@ -369,7 +369,10 @@ class _CameraFileState extends State<CameraFile> with TickerProviderStateMixin {
   void dispose() {
     if (_controller != null) {
       _controller!.dispose();
-    } else {
+    }
+
+    if (_animationController != null) {
+      // not disposing the animationController here throws an exception
       _animationController.dispose();
     }
 
